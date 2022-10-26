@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: aliceblue;
+  background-color: #fefae0;
   font-family: "Kumbh Sans", sans-serif;
   font-size: 16px;
 }
@@ -30,7 +30,7 @@ body {
 }
 
 .custom-shape-divider-top-1666641193 .shape-fill {
-    fill: #b234e0a6;
+    fill: #ccd5ae;
 }
 
 /*BACKGROUND MODAL */
@@ -53,7 +53,7 @@ body {
 }
 
 .custom-shape-divider-top-1666644066 .shape-fill {
-    fill: #b234e075;
+    fill: #ccd5ae;
 }
 
 .main-container {
@@ -147,6 +147,22 @@ body {
   text-decoration: none;
   color: black;
   font-weight: 700;
+  position: relative;
+}
+
+.modal-navbar__link:after{
+  content: "";
+  position: absolute;
+  background-color: black;
+  height: 3px;
+  width: 0;
+  left: 0;
+  bottom: -10px;
+  transition: 0.3s;
+}
+
+.modal-navbar__link:hover:after{
+  width: 100%;
 }
 
 .modal-close:hover {
@@ -205,7 +221,7 @@ body {
 }
 
 .custom-shape-divider-bottom-1666646912 .shape-fill {
-    fill: #b234e06b;
+    fill: #ccd5ae;
 }
 
 .skills{
@@ -214,8 +230,7 @@ body {
 
 .skills__container{
     padding: 1em;
-    
-    
+    visibility:hidden;
 }
 
 .skills__item{
@@ -239,7 +254,7 @@ body {
 
 .skills__item-description{
     font-size: 0.7em;
-    color: rgb(65, 63, 63);
+    color: #023047;
     font-weight: 500;
     padding: 0 4em;
 }
@@ -373,7 +388,7 @@ body {
 
 @keyframes ltr {
   from {
-    transform: translateX(-200px);
+    transform: translateX(-350px);
   }
   to {
     transform: translateX(0);
