@@ -1,4 +1,7 @@
 /*ARREGLOS GENERALES*/
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -7,7 +10,7 @@
 
 body {
   background-color: #fefae0;
-  font-family: "Kumbh Sans", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 16px;
 }
 
@@ -261,18 +264,25 @@ body {
     padding: 0 4em;
 }
 
+.contact{
+  background-color: #ccd5ae;
+  margin-top: -1em;
+  
+}
+
 .contact__form{
-  width: 17em;
+  
   margin: 1em auto;
   padding: 1em;
   display: flex;
   flex-direction: column;
   background-color: #ccd5ae;
   border-radius: .4em;
+  border: 1px solid black;
 }
 
 .contact__form-welcome{
-  width: 15em; 
+  
   margin: auto;
   height: 1.6em;
   background-color: white;
@@ -287,7 +297,7 @@ body {
 }
 
 .contact__form-details{
-  width: 15em;
+  width: 20em;
   margin: 1em auto 0;
 }
 
@@ -377,6 +387,16 @@ body {
   color: red;
   font-size: .7em;
   text-align: center;
+  display: none;
+}
+
+.contact__form-description{
+  font-size: .6em;
+  font-weight: 700;
+}
+
+.error1, .error2 {
+  color: red;
   display: none;
 }
 
@@ -486,6 +506,7 @@ body {
 
   .contact__form-welcome h3{
     margin-top: -2em;
+    text-align: justify;
   }
 
   .loader {

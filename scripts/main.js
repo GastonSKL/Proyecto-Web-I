@@ -47,6 +47,10 @@ const boton = document.querySelector(".contact__form-details-button");
 const correo = document.getElementById("correo");
 const valid = document.querySelector(".valid");
 const error = document.querySelector(".error");
+let p1 = document.querySelector('.p1');
+let p2 = document.querySelector('.p2');
+let error1 = document.querySelector('.error1');
+let error2 = document.querySelector('.error2');
 
 const regMail =
   /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g;
@@ -61,10 +65,31 @@ const validarCorreo = (mail) => {
   }
 };
 
+const validarCamposVacios = () =>{
+  if(p1.value == ''){
+    error1.style.display = 'inline';
+  }
+  if(p2.value == ''){
+    error2.style.display = 'inline';
+
+  }
+}
+
 boton.addEventListener("click", (e) => {
   e.preventDefault();
   validarCorreo(correo);
+  validarCamposVacios();
+
 });
+
+
+//VALIDACION DE CAMPOS VACIOS//
+
+
+
+
+
+
 
 //INTERSECTION OBSERVER DE FORMULARIO//
 
@@ -87,4 +112,11 @@ const observer1 = new IntersectionObserver(cargarForm, {
 
 if (window.screen.width > 1115) {
   observer1.observe(formulario);
+}
+
+let inputs = [1,"turing",{x:2},[3,4],{y:5}];
+for (let i = 0; i < inputs.length; i++) {
+    if(inputs[i] === "turing") inputs.splice(i,1);
+    else console.log(inputs[i]);
+    
 }
