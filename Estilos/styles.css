@@ -33,6 +33,7 @@ body {
     height: 399px;
 }
 
+
 .custom-shape-divider-top-1666641193 .shape-fill {
     fill: #ccd5ae;
 }
@@ -264,6 +265,129 @@ body {
     padding: 0 4em;
 }
 
+.carousel-section{
+  margin-bottom: 2em;
+}
+
+.carousel {
+  width: 100%;
+  height: 70vh;
+  position: relative;
+}
+
+.carousel > ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: 200ms opacity ease-in-out;
+  transition-delay: 200ms;
+}
+
+.slide > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.slide[data-active] {
+  opacity: 1;
+  z-index: 1;
+  transition-delay: 0ms;
+}
+
+.carousel-button {
+  position: absolute;
+  z-index: 2;
+  background: none;
+  border: none;
+  font-size: 4rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(255, 255, 255, .5);
+  cursor: pointer;
+  border-radius: .25rem;
+  padding: 0 .5rem;
+  background-color: rgba(0, 0, 0, .1);
+}
+
+.carousel-button:hover,
+.carousel-button:focus {
+  color: white;
+  background-color: rgba(0, 0, 0, .2);
+}
+
+.carousel-button:focus {
+  outline: 1px solid black;
+}
+
+.carousel-button.prev {
+  left: 10%;
+}
+
+.carousel-button.next {
+  right: 10%;
+}
+
+.proyects{
+  background-color: #ccd5ae;
+}
+
+.proyects h3{
+  text-align: center;
+  font-size: 1.1em;
+}
+
+.proyects__container{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.proyect__container-item{
+  width: 15em;
+  height: 14em;
+  
+  border-radius: .8em;
+  
+}
+
+.proyects__container img{
+  width: 80%;
+  height: 60%;
+  margin: 1em auto;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  border-radius: .4em;
+  scrollbar-width: 5px;
+  margin-bottom: .5em;
+  border: 2px solid black;
+}
+
+.proyects__container-title{
+  font-size: .8em;
+  color: rgba(0, 0, 0, 0.5);
+  margin-bottom: .5em;
+  text-align: center;
+}
+
+.proyects__container-description{
+  font-size: .6em;
+  letter-spacing: .1em;
+  color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
 .contact{
   background-color: #ccd5ae;
   margin-top: -1em;
@@ -489,6 +613,35 @@ body {
   .skills__item-5 .skills__item-description{
     width: 40%;
     margin: auto;
+  }
+
+  .proyects h3{
+
+    font-size: 1.1em;
+    margin-bottom: 2em;
+  }
+  
+  .proyects__container{
+
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .proyect__container-item{
+    width: 20em;
+    height: 18em;  
+  }
+  
+ 
+  
+  .proyects__container-title{
+    font-size: 1em;
+    
+  }
+  
+  .proyects__container-description{
+    font-size: .7em;
+ 
   }
 
   .contact__form{
