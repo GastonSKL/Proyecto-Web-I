@@ -107,24 +107,47 @@ boton.addEventListener("click", (e) => {
 
 //CAROUSEL//
 
-const buttons = document.querySelectorAll("[data-carousel-button]");
+const contenedorC = document.querySelector('.carousel__container');
+const punto = document.querySelectorAll('.carousel__position-position');
+const carousel = document.querySelector('.carousel');
+const imgC = document.querySelectorAll('.carousel__container-img');
 
-buttons.forEach((button) => {
-  button.addEventListener("click", () => {
-    const offset = button.dataset.carouselButton === "next" ? 1 : -1;
-    const slides = button
-      .closest("[data-carousel]")
-      .querySelector("[data-slides]");
+punto.forEach((point, i)=>{
+  punto[i].addEventListener("click",()=>{
+    let position = i;
+    let operacion = position * -50;
+    contenedorC.style.transform = `translateX(${operacion}%)`
+    punto.forEach((point, i)=>{
+      punto[i].classList.remove('active')
+    })
+    punto[i].classList.add('active');
+  })
+})
 
-    const activeSlide = slides.querySelector("[data-active]");
-    let newIndex = [...slides.children].indexOf(activeSlide) + offset;
-    if (newIndex < 0) newIndex = slides.children.length - 1;
-    if (newIndex >= slides.children.length) newIndex = 0;
 
-    slides.children[newIndex].dataset.active = true;
-    delete activeSlide.dataset.active;
+const cargarCarousel = (entradas, observer) => {
+  entradas.forEach((entrada) => {
+    if (entrada.isIntersecting) {
+      carousel.style.animation = "aparecer 1000ms";
+      carousel.style.visibility = "visible";
+      for (let i = 0; i < 2; i++) {
+        imgC[i].style.animation = "aparecer 1000ms";
+        imgC[i].style.visibility = "visible";
+        
+      }
+    }
   });
+};
+
+const observer2 = new IntersectionObserver(cargarCarousel, {
+  root: null,
+  rootMargin: "0px 0px 0px 0px",
+  threshold: 0.5,
 });
+
+if (window.screen.width > 1115) {
+  observer2.observe(carousel);
+}
 
 //INTERSECTION OBSERVER DE FORMULARIO//
 
