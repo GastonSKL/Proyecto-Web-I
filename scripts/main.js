@@ -58,14 +58,12 @@ const regMail =
   /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g;
 
 const validarCorreo = (mail) => {
-  if (mail.value.match(regMail)) {
-    valid.style.display = "block";
-    error.style.display = "none";
-    return true;
-  } else {
+  if (!mail.value.match(regMail)) {
     error.style.display = "block";
     valid.style.display = "none";
     return false;
+  } else {
+    return true;
   }
 };
 
@@ -91,6 +89,8 @@ boton.addEventListener("click", (e) => {
   validarCorreo(correo);
   validarCamposVacios();
   if (validarCamposVacios() && validarCorreo(correo)) {
+    error.style.display = "none";
+    valid.style.display = "inline";
     formList.innerHTML += `<li>
     <div class="form__list-container">
       <h3 class="form__list-container-title">${p1.value}</h3>
