@@ -47,10 +47,12 @@ const boton = document.querySelector(".contact__form-details-button");
 const correo = document.getElementById("correo");
 const valid = document.querySelector(".valid");
 const error = document.querySelector(".error");
-let p1 = document.querySelector('.p1');
-let p2 = document.querySelector('.p2');
-let error1 = document.querySelector('.error1');
-let error2 = document.querySelector('.error2');
+let p1 = document.querySelector(".p1");
+let p2 = document.querySelector(".p2");
+let error1 = document.querySelector(".error1");
+let error2 = document.querySelector(".error2");
+let error3 = document.querySelector(".error3");
+let formList = document.querySelector(".form__list");
 
 const regMail =
   /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g;
@@ -59,54 +61,70 @@ const validarCorreo = (mail) => {
   if (mail.value.match(regMail)) {
     valid.style.display = "block";
     error.style.display = "none";
+    return true;
   } else {
     error.style.display = "block";
     valid.style.display = "none";
+    return false;
   }
 };
 
-const validarCamposVacios = () =>{
-  if(p1.value == ''){
-    error1.style.display = 'inline';
+const validarCamposVacios = () => {
+  if (p1.value == "") {
+    error1.style.display = "inline";
+    return false;
   }
-  if(p2.value == ''){
-    error2.style.display = 'inline';
-
+  if (p2.value == "") {
+    error2.style.display = "inline";
+    return false;
+  } 
+  if(mensaje.value == ""){
+    error3.style.display = "inline";
+    return false;
   }
-}
+  
+  else return true;
+};
 
 boton.addEventListener("click", (e) => {
   e.preventDefault();
   validarCorreo(correo);
   validarCamposVacios();
-
+  if (validarCamposVacios() && validarCorreo(correo)) {
+    formList.innerHTML += `<li>
+    <div class="form__list-container">
+      <h3 class="form__list-container-title">${p1.value}</h3>
+      <h4 class="form__list-container-asunto">${p2.value}</h4>
+      <p class="form__list-container-text">${mensaje.value}</p>
+    </div>
+</li>`;
+    correo.value = "";
+    p1.value = "";
+    p2.value = "";
+    mensaje.value = "";
+  }
 });
-
 
 //CAROUSEL//
 
-const buttons = document.querySelectorAll("[data-carousel-button]")
+const buttons = document.querySelectorAll("[data-carousel-button]");
 
-buttons.forEach(button => {
+buttons.forEach((button) => {
   button.addEventListener("click", () => {
-    const offset = button.dataset.carouselButton === "next" ? 1 : -1
+    const offset = button.dataset.carouselButton === "next" ? 1 : -1;
     const slides = button
       .closest("[data-carousel]")
-      .querySelector("[data-slides]")
+      .querySelector("[data-slides]");
 
-    const activeSlide = slides.querySelector("[data-active]")
-    let newIndex = [...slides.children].indexOf(activeSlide) + offset
-    if (newIndex < 0) newIndex = slides.children.length - 1
-    if (newIndex >= slides.children.length) newIndex = 0
+    const activeSlide = slides.querySelector("[data-active]");
+    let newIndex = [...slides.children].indexOf(activeSlide) + offset;
+    if (newIndex < 0) newIndex = slides.children.length - 1;
+    if (newIndex >= slides.children.length) newIndex = 0;
 
-    slides.children[newIndex].dataset.active = true
-    delete activeSlide.dataset.active
-  })
-})
-
-
-
-
+    slides.children[newIndex].dataset.active = true;
+    delete activeSlide.dataset.active;
+  });
+});
 
 //INTERSECTION OBSERVER DE FORMULARIO//
 
@@ -131,9 +149,8 @@ if (window.screen.width > 1115) {
   observer1.observe(formulario);
 }
 
-let inputs = [1,"turing",{x:2},[3,4],{y:5}];
+let inputs = [1, "turing", { x: 2 }, [3, 4], { y: 5 }];
 for (let i = 0; i < inputs.length; i++) {
-    if(inputs[i] === "turing") inputs.splice(i,1);
-    else console.log(inputs[i]);
-    
+  if (inputs[i] === "turing") inputs.splice(i, 1);
+  else console.log(inputs[i]);
 }
