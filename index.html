@@ -44,13 +44,14 @@
             <!--MODAL NAVBAR-->
             <div class="modal-navbar__background">
               <nav class="modal-navbar">
-                <img class="modal-close" src="./images/icon-close.svg" alt="Close">
+                
                 <ul class="modal-navbar__items">
+                  <img class="modal-close" src="./images/icon-close.svg" alt="Close">
                   <li><a class="modal-navbar__link" href="#">Inicio</a></li>
-                  <li><a class="modal-navbar__link" href="#">Sobre mi</a></li>
-                  <li><a class="modal-navbar__link" href="#">Skills</a></li>
-                  <li><a class="modal-navbar__link" href="#">Proyectos</a></li>
-                  <li><a class="modal-navbar__link" href="#">Contacto</a></li>
+                  <li><a class="modal-navbar__link" href="#content"">Sobre mi</a></li>
+                  <li><a class="modal-navbar__link" href="#skills">Skills</a></li>
+                  <li><a class="modal-navbar__link" href="#proyects">Proyectos</a></li>
+                  <li><a class="modal-navbar__link" href="#contact">Contacto</a></li>
                 </ul>
               </nav>
             </div>
@@ -67,7 +68,18 @@
           </div>
         </section> 
 
-        <section id="carousel" class="carousel-section">
+        <section class="carousel">
+          <div class="carousel__container">
+            <img src="./images/CPick1.jpg" alt="imagen" class="carousel__container-img">
+            <img src="./images/CPick2.jpg" alt="imagen" class="carousel__container-img">
+          </div>
+          <ul class="carousel__position">
+            <li class="carousel__position-position active"></li>
+            <li class="carousel__position-position"></li>
+          </ul>
+        </section>
+
+       <!-- <section id="carousel" class="carousel-section">
           <div class="carousel" data-carousel>
             <button class="carousel-button prev" data-carousel-button="prev">&#8592;</button>
             <button class="carousel-button next" data-carousel-button="next">&#8594;</button>
@@ -83,7 +95,7 @@
               </li>
             </ul>
           </div>
-        </section>
+        </section>-->
         
         <section id="skills" class="skills">
          <!-- <div class="custom-shape-divider-bottom-1666646912">
